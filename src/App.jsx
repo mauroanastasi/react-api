@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 function App() {
@@ -8,12 +8,13 @@ function App() {
   // creo la funzione che conterrà la chiamata ajax
   const fetchActresses = () => {
     axios.get("https://lanciweb.github.io/demo/api/actresses/")
-      .then((response) => setActresses(response.data.results));
+      .then((response) => console.log(response.data));
   }
+  useEffect(fetchActresses, []);
 
   return (
     <>
-      <button className="btn btn-primary" onClick={fetchActresses}>stampa a console</button>
+
     </>
   )
 }
