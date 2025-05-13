@@ -8,7 +8,7 @@ function App() {
   // creo la funzione che conterrà la chiamata ajax
   const fetchActresses = () => {
     axios.get("https://lanciweb.github.io/demo/api/actresses/")
-      .then((response) => console.log(response.data));
+      .then((response) => setActresses(response.data.results));
   }
 
   return (
